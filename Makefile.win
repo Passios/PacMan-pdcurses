@@ -1,0 +1,46 @@
+# Project: Game_Potter
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Gnome.o HiScore.o Engine.o Potter.o Traal.o Moving.o
+LINKOBJ  = main.o Gnome.o HiScore.o Engine.o Potter.o Traal.o Moving.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -lpdcurses -m32
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Game_Potter.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Gnome.o: Gnome.cpp
+	$(CPP) -c Gnome.cpp -o Gnome.o $(CXXFLAGS)
+
+HiScore.o: HiScore.cpp
+	$(CPP) -c HiScore.cpp -o HiScore.o $(CXXFLAGS)
+
+Engine.o: Engine.cpp
+	$(CPP) -c Engine.cpp -o Engine.o $(CXXFLAGS)
+
+Potter.o: Potter.cpp
+	$(CPP) -c Potter.cpp -o Potter.o $(CXXFLAGS)
+
+Traal.o: Traal.cpp
+	$(CPP) -c Traal.cpp -o Traal.o $(CXXFLAGS)
+
+Moving.o: Moving.cpp
+	$(CPP) -c Moving.cpp -o Moving.o $(CXXFLAGS)
